@@ -1,0 +1,213 @@
+SmartWeld is an all-in-one welding management software. It is appropriate for any size and type of business that performs welding in accordance with worldwide welding standards. SmartWeld gives you control over every step of the process, from welding protocols to welder and inspector credentials, documentation, reporting, and administration through its welding simulation. With this welding automation software, SmartWeld provides you with complete traceability for every welding process at an affordable cost and according to your company’s requirements.
+
+SMARTWELD SOFTWARE SOLUTIONS FOR
+WELDING MANAGEMENT
+We innovate and deliver with our SmartWeld software data analytics from your weld data and process reporting, statistical analytics forecasting solutions, and predictive analytics. We enhance Welding Productivity, Cost Control, Quality, Availability, Maintenance Security, Predictive Indication and Event Monitoring in Real-Time.
+
+realtime_data_smartweld  24x7 Real-Time Data
+traceability_smartweld  Traceability of Deviation & Faults
+root_cause_analysis_smartweld  Root-Cause Analysis
+historical_data_smartweld  Monitoring Weld Data
+cost_optimaztion_smartweld  Cost Optimization
+welder_performace_smartweld   Welder Performance Oversight
+historical_data_smartweld  Analytical Dashboard
+Welding Metrics are captured to a centralized repository & displayed on role-based dashboards for real-time insights.
+Since welding is automatically documented 24x7 at our SmartWeld i.o, you can always monitor the current status of the entire welding process, no matter where you are. It's never been easier to monitor welding quality and manage productions from afar.
+
+Our welding management software allows you, complete welds to be traced back by helping you to set the control limits by generating alerts.
+Our device can provide you 100% traceability to every weld with minimal wastage of weld consumables.
+It helps to retrieve each weld deviation to the data repository by inspecting accumulated weld data according to the WPS you feed.
+
+To Detect reduction of fabricated components
+Poor welding can result from a combination of inferior workmanship and instructions. SmartWeld will assist you in Root-Cause Analysis by indicating control limits and generating alerts.
+
+Records working parameters for materials, conditions, and environments for many individual machines
+The software solution will collect the weld data that will benefit you to look at your weld procedure and methods. The welding automation will record the data for analysis and help you to focus on more ways to enhance the welding performance.
+
+Save up to 50% in production lead time by reducing idle time on weld events
+Our Welding Software measures the visibility of the weld cost data against the benchmarks to facilitate improvements. Preliminary results have demonstrated a reduction of up to 50% in production lead time by reducing idle time on weld events by using our welding software.
+
+Battle-test in production by using in numerous different environments
+Graphical visualization of all recorded data will help for quick and easy analysis which makes it feasible to detect errors that developed on components over the course of several welding processes.
+SmartWeld device is reliable as it records weld data fast and transmits data in real-time without any data loss
+Welding data and analytics can be accessed from your computer, tablet or smartphone to retrieve files online and from a remote data server, decreasing data breaches and the prevalence of historical and current data.
+OUR SOFTWARE IS ACCESSIBLE WORLDWIDE AND WORKS WITH ANY BRAND OF WELDING EQUIPMENT
+THIS CLOUD-BASED SERVICE ALLOWS YOU TO EASILY CONTROL YOUR WELDING OPERATIONS FROM ANYWHERE IN THE WORLD.
+SMARTWELD IS A WELDING MANAGEMENT
+SOFTWARE FOR IMPROVEMENT OF YOUR
+WELDING PROCEDURE
+weld_current_smartweld
+Increased Welding Productivity
+weld_current_smartweld
+Improved Welding Quality
+weld_current_smartweld
+Reduced Operational Costs
+weld_current_smartweld
+Reduced Machine Downtime
+WE DELIVER THE BEST
+As an emerging 4.0 IIoT Technology, being the leading manufacturer and supplier, SmartWeld has been successful in offering a qualitative top-most cutting-edge technology and proven several functionalities with all sorts of arc welding: manual, mechanized welding, including MMA, MIG, TIG and SAW processes. We offer role-based dashboards supported by drill-down reporting, statistical methods, forecasting models and predictive analytics.
+
+
+What is Smart Weld?
+This is an IIOT solution i.e. Sensors, Hardware, Communication Software package offering which helps in improving the operational efficiency of an Industries’ Welding activity taking the Welding Manufacturing in Industry 4.0 domain even without changing the existing types of machinery.
+
+We are soon adding management tools for welding personnel, their qualifications, WPSs and WPQRs.
+
+Which aspects of Operational Efficiency will it help in improving?
+
+Increased Welding Productivity.
+Improvement in Quality
+Cost Optimisation
+Reduce machine down-time
+
+How does it help in improving productivity?
+By giving visibility to the benchmark data against the actual one, critical indicators shown here are Arc ON time & KG/Hr.
+
+
+It shows real-time data of Quality critical parameters like Current, Voltage Gas Flow, and respective deviation with respect to control limit, necessary alerts go to the supervisors in case of sustained deviation.
+
+
+How does it helps in reducing machine breakdown time?
+Machine health parameters are analyzed in real-time & give necessary alerts to check machine conditions proactively to prevent breakdown.
+
+Does the system guide fix the Welding Parameters & Control limits?
+No, right it is done as per Customers' WPS but in future versions, this will guide customers to refine the parameters for improved results (through Data analytics).
+
+Can it be used in any Brand & type of machine?
+Yes, it can be retrofitted in any brand/make of Machine.
+
+Which are basic Welding Processes where Smart Weld can be used?
+Though we are focussing on GMAW in our launching, the same version can be used for other ARC Welding processes like SAW, SMAW, TIG.
+
+
+What is the utility of seeing data? What's the ROI of this investment?
+As per a recent study introduction of Digital Lean in operation (What Smart Weld does for Welding) improves productivity by 20-35%, Quality by 30-35%, Reduction in Conversion Cost by 20-30%.
+
+Can I buy a Smart Weld Kit & get the benefit out of it?
+No, you will need a pre-sales discussion with the Smart Weld team to understand the AS-IS situation in your plant & will ensure seamless implementation, the product remaining the implementation by Smart Weld will ensure the most effective and apt utilization of the same.
+
+What will be the Capex & Opex cost for Smart Weld implementation at our plant?
+Please call us @ 8882331144
+
+Have you sold any Solutions of Smart Weld?
+Yes, to some medium fabricators but most notably to BHEL Trichy.
+
+What about the security of our data?
+Your data is completely secured at our data cloud repository
+
+What is the frequency of Data Capturing?
+Every second during the welding process.
+
+What would be the period the “past data” can be seen?
+Please call us @ 8882331144
+
+How secure the data will be in the cloud?
+Your data will be completely secured and encrypted.
+
+Mode of data transfer?
+GSM Sim for IoT (low-cost) or through Wi-Fi, the Smart Weld team can do the premise recording based on client-specific requirements
+
+Can we track the welder behind the machine to link with the deviations in the operational performance?
+Yes, we can identify the welder if you opt for the RFID-enabled Smart Card.
+
+How long the data can be stored in the device (machine connected) in case of connectivity failure?
+1 to 24 hrs based on Customer requirement (it has got a cost impact)
+
+How different it is from a "Welding Data Logger"?
+It is completely different since Smart Weld renders a total solution to improve the operational efficiency of Welding.
+
+
+To whom the reports and alerts would be more beneficial?
+As per the standard, the reports and alerts will be shared with the Production Supervisor, Quality Supervisor, Maintenance Supervisor, and owner. All reports would be different and office specific for them to do the needful.
+
+
+
+SmartWeld is an Industrial Internet of Things (IIoT)/Industry 4.0 company that can help with remote monitoring of your welding machines, offering your weld process analysis and storing data at our data repository and improving overall equipment efficiency
+
+
+
+
+visibility_smartweld
+Visibility
+Our welding management software provides maximum possible visibility of all process connected, helping in near real-time troubleshooting. Configurable Man, Machine, Material & Methods entities and relationships.
+
+connectivity_smartweld
+Connectivity
+Welding parameters can be recorded to a centralized cloud location (or on premise), and working parameters for materials, conditions, and environments can be pushed to many individual machines
+
+monitor_smartweld
+Monitor
+The arc-on time of welding stations is constantly tracked and measured. It also shows how much time was spent on non-welding processes like grinding or gouging. It is beneficial for most businesses and helps with welding production workflow planning
+
+Traceability_smartweld
+Traceability
+SmartWeld allows completed welds to be tracked back to the machine and the operator who was working on the machine
+
+Centralized_Networked_smartweld
+Centralized & Networked
+Welding parameters can be recorded to a centralized cloud location (or on premise), and working parameters for materials, conditions, and environments can be pushed to many individual machines
+
+Automated_Alerts_smartweld
+Automated Alerts
+Connected machines can send alerts when issues arise or as scheduled by the user, ensuring the free flow of information needed by operations managers, service technicians, and welding engineers. Fully automated interfaces with near real-time dashboard
+
+Documentation_smartweld
+Documentation
+Weld data monitoring allows the information monitored during a welding operation to be easily recorded, making it possible for weld inspectors and other relevant personnel to easily certify that correct welding parameters were followed
+
+Flexibility_smartweld
+Flexibility
+SmartWeld device communicates with the welding machine via a data link. This device is not limited to any specific brand, and can work with any standard welding machine brands
+
+Distinguishability_smartweld
+Distinguishability
+SmartWeld device knows when the welding arc is ignited and stopped, and can thus distinguish individual welding runs and tally arc time be it a small tack weld of under few seconds or long mechanized weld where the arc is it lit for many minute
+
+Smart_Data_Retention_smartweld
+Smart Data Retention
+SmartWeld device does not need to store welding parameter data on an SD card, it can store up to 10 hours of data (4000 records) in case of any sudden network issues, and send data in near real-time to prevent any loss of data
+
+Smart_Card_smartweld
+Smart Card
+Our smart card identifies, tracks, and connects with the people using the welding machine. It will also contain a variety of data, including serial numbers, a brief explanation, and even measures the working hours of the welders
+
+
+
+
+SMARTWELD
+SUBSCRIPTION
+PLAN
+Our team is ready to give you a customized subscription model depending on your requirements. We will visit your factory and understand your needs
+
+
+
+PRICING DETAILS
+
+subscriptions_smartweld
+To Know More About Our Pricing, Call or Whatsapp - +91 94346 41479, Email: support@smart-weld.com
+
+
+welding_cap_smartweld
+Welding  Re-defined
+SmartWeld brings the perfect solution for regulating welding production. Uncovering machinery that can stand the test of time, without any fear of break down is what SmartWeld understands too well, as they strive to put quality first. Our SmartWeld device is used to help the business users to get a detail insight from the welding machines with industry defined KPIs
+
+
+
+
+Our  Vision
+
+To be the most innovative company that combines and delivers Welding with IIoT Systems & Analytics, Industry 4.0 with AI/ML Based Business Solutions and Industry Specific Advanced Analytics into a Data Repository.
+
+vision_smartweld
+mission_smartweld
+Our  Mission
+To monitor productivity, quality, availability, maintenance security & jobs in 24x7 real-time and supply user-friendly products towards business owners’ satisfaction and quality services at cost-effective affordable price.
+
+
+Smartweld provides maximum possible visibility of all process connected, helping in near real-time troubleshooting. Configurable Man, Machine, Material & Methods entities and relationships.
+Welding is not a rocket science, it is an art of perfection. To get the feel of a perfect welding experience, SmartWeld ensures the highest levels of quality at the lowest cost and provides maximum visibility into the welding process, providing real-time information.
+Our welding management software solution helps you to ensure real-time monitoring including tracking productivity and machine health. It tracks all the credentials and improve your operational efficiency in welding.
+Our desire to surpass the expectations of our customers is what motivates us to be the best - every day. SmartWeld is a welding management software solution that helps you keeping track of your welding procedures and credentials.
+SmartWeld is known for providing comprehensive solutions to the most complex manufacturing challenges
+We are known for our superior quality, unparalleled customer service and expert technical support.
+

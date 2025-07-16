@@ -1,0 +1,240 @@
+.metadata-generator-container {
+  margin-top: 30px;
+  padding: 20px;
+  background-color: #f5f0ff;
+  border-radius: 8px;
+  border: 1px solid #d0c0ff;
+}
+
+.metadata-generator-container h3 {
+  color: #6b46c1;
+  margin-bottom: 10px;
+}
+
+.pre-generation-summary {
+  background-color: white;
+  padding: 15px;
+  border-radius: 6px;
+  margin: 20px 0;
+}
+
+.generation-info {
+  background-color: #faf5ff;
+  padding: 20px;
+  border-radius: 6px;
+  margin: 20px 0;
+}
+
+.generation-info h4 {
+  color: #553c9a;
+  margin-bottom: 10px;
+}
+
+.generation-info ul {
+  margin: 0;
+  padding-left: 25px;
+}
+
+.generation-info li {
+  margin: 5px 0;
+  color: #6b7280;
+}
+
+.generate-metadata-btn {
+  background-color: #6b46c1;
+  color: white;
+  padding: 15px 40px;
+  font-size: 18px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 30px auto;
+  transition: all 0.3s;
+}
+
+.generate-metadata-btn:hover:not(:disabled) {
+  background-color: #553c9a;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(107, 70, 193, 0.3);
+}
+
+.metadata-complete {
+  background-color: #e8f5e9;
+  padding: 30px;
+  border-radius: 8px;
+  border: 1px solid #c8e6c9;
+}
+
+.metadata-summary {
+  background-color: white;
+  padding: 20px;
+  border-radius: 6px;
+  margin: 20px 0;
+}
+
+.metadata-item {
+  margin: 15px 0;
+  padding: 15px;
+  background-color: #f8f9fa;
+  border-radius: 4px;
+}
+
+.metadata-item label {
+  display: block;
+  font-weight: bold;
+  color: #6b46c1;
+  margin-bottom: 5px;
+}
+
+.metadata-value {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Courier New', monospace;
+  color: #333;
+}
+
+.copy-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  padding: 5px;
+  transition: transform 0.2s;
+}
+
+.copy-btn:hover {
+  transform: scale(1.2);
+}
+
+.blog-stats {
+  background-color: white;
+  padding: 20px;
+  border-radius: 6px;
+  margin: 20px 0;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.stat-item {
+  text-align: center;
+  padding: 15px;
+  background-color: #f8f9fa;
+  border-radius: 4px;
+}
+
+.stat-label {
+  display: block;
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 5px;
+}
+
+.stat-value {
+  display: block;
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+}
+
+.stat-value.ready {
+  color: #4caf50;
+}
+
+.final-actions {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin: 30px 0;
+  flex-wrap: wrap;
+}
+
+.preview-btn, .download-btn, .copy-html-btn {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.3s;
+}
+
+.preview-btn {
+  background-color: #3498db;
+  color: white;
+}
+
+.download-btn {
+  background-color: #27ae60;
+  color: white;
+}
+
+.copy-html-btn {
+  background-color: #e74c3c;
+  color: white;
+}
+
+.preview-btn:hover, .download-btn:hover, .copy-html-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.blog-preview {
+  margin-top: 30px;
+}
+
+.preview-frame {
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-top: 15px;
+  background-color: white;
+}
+
+.success-message {
+  background-color: #d4edda;
+  border: 1px solid #c3e6cb;
+  color: #155724;
+  padding: 20px;
+  border-radius: 6px;
+  margin-top: 30px;
+}
+
+.success-message h4 {
+  margin-top: 0;
+  color: #155724;
+}
+
+.success-message ul {
+  margin: 10px 0;
+  padding-left: 25px;
+}
+
+.error-message {
+  background-color: #f8d7da;
+  color: #721c24;
+  padding: 15px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+}
+
+.spinner-small {
+  width: 16px;
+  height: 16px;
+  border: 2px solid #f3f3f3;
+  border-top: 2px solid #6b46c1;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
