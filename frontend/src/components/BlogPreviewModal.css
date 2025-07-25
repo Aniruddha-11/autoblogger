@@ -1,0 +1,214 @@
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.modal-content {
+  background: white;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 1000px;
+  max-height: 90vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.modal-header {
+  padding: 20px;
+  border-bottom: 1px solid #e9ecef;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f8f9fa;
+}
+
+.modal-header h3 {
+  margin: 0;
+  color: #2c3e50;
+  font-size: 1.3em;
+}
+
+.modal-close {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #6c757d;
+  padding: 5px;
+  border-radius: 4px;
+  transition: all 0.2s;
+}
+
+.modal-close:hover {
+  background-color: #e9ecef;
+  color: #495057;
+}
+
+.modal-body {
+  padding: 20px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.blog-metadata {
+  background-color: #f8f9fa;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.metadata-row {
+  display: flex;
+  margin-bottom: 8px;
+  align-items: center;
+}
+
+.metadata-row:last-child {
+  margin-bottom: 0;
+}
+
+.metadata-row .label {
+  font-weight: bold;
+  color: #495057;
+  min-width: 120px;
+  margin-right: 10px;
+}
+
+.metadata-row .value {
+  color: #6c757d;
+  flex: 1;
+}
+
+.value.status-ready_to_publish {
+  color: #28a745;
+  font-weight: bold;
+}
+
+.value.status-draft {
+  color: #ffc107;
+  font-weight: bold;
+}
+
+.blog-preview-container h4 {
+  color: #495057;
+  margin-bottom: 15px;
+}
+
+.preview-frame {
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: white;
+}
+
+.preview-frame iframe {
+  display: block;
+}
+
+.modal-footer {
+  padding: 20px;
+  border-top: 1px solid #e9ecef;
+  background-color: #f8f9fa;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.download-options {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.download-option-btn {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.3s;
+}
+
+.download-option-btn.html {
+  background-color: #007bff;
+  color: white;
+}
+
+.download-option-btn.txt {
+  background-color: #28a745;
+  color: white;
+}
+
+.download-option-btn.json {
+  background-color: #17a2b8;
+  color: white;
+}
+
+.download-option-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.close-modal-btn {
+  background-color: #6c757d;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.3s;
+}
+
+.close-modal-btn:hover {
+  background-color: #5a6268;
+}
+
+@media (max-width: 768px) {
+  .modal-content {
+    width: 95%;
+    max-height: 95vh;
+  }
+  
+  .modal-header {
+    padding: 15px;
+  }
+  
+  .modal-body {
+    padding: 15px;
+  }
+  
+  .modal-footer {
+    padding: 15px;
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .download-options {
+    justify-content: center;
+  }
+  
+  .metadata-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .metadata-row .label {
+    min-width: auto;
+    margin-bottom: 2px;
+  }
+}

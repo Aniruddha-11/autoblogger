@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { keywordAPI } from '../services/api';
 import ScrapingButton from './ScrapingButton';
+import SessionManager from '../utils/SessionManager';
 import './KeywordInput.css';
 
 const KeywordInput = () => {
@@ -12,29 +13,35 @@ const KeywordInput = () => {
   const [currentBatchId, setCurrentBatchId] = useState(null);
   const [showScraping, setShowScraping] = useState(false);
   const [currentStep, setCurrentStep] = useState(1);
+  const [sessionRestored, setSessionRestored] = useState(false);
 
   useEffect(() => {
-    // Load session from localStorage
-    const savedSession = localStorage.getItem('currentSession');
-    if (savedSession) {
-      const session = JSON.parse(savedSession);
-      setCurrentBatchId(session.batchId);
-      setShowScraping(true);
-      setCurrentStep(session.step || 1);
-    }
-    
+    // Restore session on component mount
+    restoreSession();
     fetchSavedKeywords();
   }, []);
 
-  useEffect(() => {
-    // Save session to localStorage
-    if (currentBatchId) {
-      localStorage.setItem('currentSession', JSON.stringify({
-        batchId: currentBatchId,
-        step: currentStep
-      }));
+  const restoreSession = async () => {
+    try {
+      const session = SessionManager.getManualSession();
+      
+      if (session && session.keywordId) {
+        console.log('Restoring manual session:', session);
+        
+        setCurrentBatchId(session.keywordId);
+        setCurrentStep(session.currentStep || 2);
+        setShowScraping(true);
+        setSessionRestored(true);
+        
+        setMessage(`Session restored! Continuing from step ${session.currentStep || 2}`);
+        
+        // Clear message after 3 seconds
+        setTimeout(() => setMessage(''), 3000);
+      }
+    } catch (error) {
+      console.error('Error restoring session:', error);
     }
-  }, [currentBatchId, currentStep]);
+  };
 
   const fetchSavedKeywords = async () => {
     try {
@@ -71,10 +78,23 @@ const KeywordInput = () => {
 
     try {
       const response = await keywordAPI.createKeywords(mainKeyword, filteredKeywords);
+      const keywordId = response.data._id;
+      
       setMessage('Keywords saved successfully!');
-      setCurrentBatchId(response.data._id);
+      setCurrentBatchId(keywordId);
       setShowScraping(true);
       setCurrentStep(2);
+      
+      // Save session
+      SessionManager.saveManualSession({
+        keywordId: keywordId,
+        currentStep: 2,
+        mainKeyword: mainKeyword,
+        keywords: filteredKeywords,
+        stepData: {
+          1: { completed: true, data: response.data }
+        }
+      });
       
       // Reset form
       setMainKeyword('');
@@ -90,34 +110,57 @@ const KeywordInput = () => {
 
   const handleScrapingComplete = (scrapedData) => {
     setCurrentStep(3);
+    
+    // Update session
+    SessionManager.updateManualStep(currentBatchId, 3, {
+      completed: true,
+      data: scrapedData
+    });
+    
     fetchSavedKeywords();
   };
 
   const handleSelectBatch = (batchId) => {
     setCurrentBatchId(batchId);
     setShowScraping(true);
-    
-    // Clear any previous session and start new
-    localStorage.setItem('currentSession', JSON.stringify({
-      batchId: batchId,
-      step: 2
-    }));
     setCurrentStep(2);
+    
+    // Save new session
+    SessionManager.saveManualSession({
+      keywordId: batchId,
+      currentStep: 2
+    });
   };
 
   const clearSession = () => {
-    localStorage.removeItem('currentSession');
+    const confirmed = window.confirm(
+      'Are you sure you want to clear the current session? This will lose your progress.'
+    );
+    
+    if (!confirmed) return;
+    
+    SessionManager.clearManualSession();
     setCurrentBatchId(null);
     setShowScraping(false);
     setCurrentStep(1);
+    setSessionRestored(false);
+    setMessage('Session cleared. You can start a new workflow.');
   };
 
   return (
     <div className="keyword-input-container">
       {currentBatchId && (
-        <div className="session-info">
-          <p>Current Session: {currentBatchId}</p>
-          <button onClick={clearSession} className="clear-session">Start New Session</button>
+        <div className={`session-info ${sessionRestored ? 'restored' : ''}`}>
+          <div className="session-details">
+            <p>📋 Active Session: {currentBatchId.substring(0, 8)}...{currentBatchId.substring(-4)}</p>
+            <p>📍 Current Step: {currentStep}</p>
+            {sessionRestored && <p className="session-restored">✅ Session Restored</p>}
+          </div>
+          <div className="session-actions">
+            <button onClick={clearSession} className="clear-session">
+              🗑️ Clear Session
+            </button>
+          </div>
         </div>
       )}
 
@@ -133,6 +176,7 @@ const KeywordInput = () => {
             onChange={(e) => setMainKeyword(e.target.value)}
             placeholder="e.g., Smart Weld Technology"
             required
+            disabled={currentBatchId && currentStep > 1}
           />
         </div>
 
@@ -146,17 +190,21 @@ const KeywordInput = () => {
               onChange={(e) => handleKeywordChange(index, e.target.value)}
               placeholder={`Keyword ${index + 1}`}
               className="keyword-input"
+              disabled={currentBatchId && currentStep > 1}
             />
           ))}
         </div>
 
-        <button type="submit" disabled={loading || currentBatchId}>
+        <button 
+          type="submit" 
+          disabled={loading || (currentBatchId && currentStep > 1)}
+        >
           {loading ? 'Saving...' : 'Save Keywords'}
         </button>
       </form>
 
       {message && (
-        <div className={`message ${message.includes('success') ? 'success' : 'error'}`}>
+        <div className={`message ${message.includes('success') || message.includes('restored') ? 'success' : 'error'}`}>
           {message}
         </div>
       )}
@@ -166,6 +214,10 @@ const KeywordInput = () => {
           keywordId={currentBatchId}
           onScrapingComplete={handleScrapingComplete}
           currentStep={currentStep}
+          onStepChange={(step) => {
+            setCurrentStep(step);
+            SessionManager.updateManualStep(currentBatchId, step);
+          }}
         />
       )}
 
