@@ -16,7 +16,7 @@ class Config:
     GEMINI_API_KEY = os.getenv('GEMINI_API_KEY')
     
     # CORS settings for production
-    CORS_ORIGINS = os.getenv('CORS_ORIGINS', '*').split(',')
+    CORS_ORIGINS = os.getenv('CORS_ORIGINS', 'https://blog-generator-three-nu.vercel.app,http://localhost:3000').split(',')
 
     #gemini-1#AIzaSyC6eKmNSTsxqY_nsH1Iju7AYsRCUk_9jzs
     #gemini-2#AIzaSyC716kanHwjTw3lAUoa2iFW3FfB-hBD1_g

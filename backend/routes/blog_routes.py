@@ -38,15 +38,25 @@ def start_blog_generation(keyword_id):
                 400,
             )
 
-        session_id = f"{keyword_id}_blog"
-        generation_sessions[session_id] = {
+        session_id = f"{keyword_id}_blog_{int(time.time())}"
+        
+        # Store session in database instead of memory
+        session_data = {
+            "_id": session_id,
             "keyword_id": keyword_id,
             "main_keyword": keyword_doc["main_keyword"],
             "keywords": keyword_doc["keywords"],
             "scraped_content": scraped_doc["content"],
             "current_step": 1,
             "blog_data": {},
+            "created_at": datetime.utcnow(),
+            "expires_at": datetime.utcnow() + timedelta(hours=2)  # 2 hour expiry
         }
+        
+        # Use a sessions collection in MongoDB
+        from utils.db import db
+        sessions_collection = db['generation_sessions']
+        sessions_collection.insert_one(session_data)
 
         return (
             jsonify(
@@ -71,12 +81,34 @@ def generate_blog_step(keyword_id):
     try:
         data = request.json
         step = data.get("step")
-        session_id = f"{keyword_id}_blog"
+        session_id = data.get("session_id")
+        
+        if not session_id:
+            return jsonify({"error": "Session ID is required"}), 400
 
-        if session_id not in generation_sessions:
+        # Get session from database instead of memory
+        from utils.db import db
+        sessions_collection = db['generation_sessions']
+        session_doc = sessions_collection.find_one({"_id": session_id})
+        
+        if not session_doc:
             return jsonify({"error": "No active generation session found"}), 400
+            
+        # Check if session expired
+        if session_doc.get("expires_at") and session_doc["expires_at"] < datetime.utcnow():
+            sessions_collection.delete_one({"_id": session_id})
+            return jsonify({"error": "Generation session expired"}), 400
 
-        session = generation_sessions[session_id]
+        # Convert database document to session format
+        session = {
+            "keyword_id": session_doc["keyword_id"],
+            "main_keyword": session_doc["main_keyword"],
+            "keywords": session_doc["keywords"],
+            "scraped_content": session_doc["scraped_content"],
+            "current_step": session_doc["current_step"],
+            "blog_data": session_doc["blog_data"]
+        }
+
         generator = BlogGenerator()
         result = {}
 
@@ -122,8 +154,6 @@ def generate_blog_step(keyword_id):
             session["blog_data"]["subheadings"] = subheadings
             result = {"subheadings": subheadings}
             session["current_step"] = 5
-
-        # In generate_blog_step function, update content_sections generation:
 
         elif step == "content_sections":
             if "subheadings" not in session["blog_data"]:
@@ -213,6 +243,7 @@ def generate_blog_step(keyword_id):
                 session["blog_data"], session["main_keyword"], keywords
             )
 
+            # Store HTML versions in session for database storage
             session["original_html"] = quality_result["original_html"]
             session["enhanced_html"] = quality_result["enhanced_html"]
 
@@ -257,7 +288,8 @@ def generate_blog_step(keyword_id):
                 },
             )
 
-            del generation_sessions[session_id]
+            # Clean up session from database after finalization
+            sessions_collection.delete_one({"_id": session_id})
 
             blog_doc["_id"] = result_doc.inserted_id
             formatted_blog = BlogModel.format_blog_response(blog_doc)
@@ -270,6 +302,25 @@ def generate_blog_step(keyword_id):
 
         else:
             return jsonify({"error": "Invalid step"}), 400
+
+        # Update session in database after each step (except finalize which deletes it)
+        if step != "finalize":
+            update_data = {
+                "blog_data": session["blog_data"],
+                "current_step": session["current_step"],
+                "updated_at": datetime.utcnow()
+            }
+            
+            # Include HTML versions if they exist (for quality_check step)
+            if "original_html" in session:
+                update_data["original_html"] = session["original_html"]
+            if "enhanced_html" in session:
+                update_data["enhanced_html"] = session["enhanced_html"]
+                
+            sessions_collection.update_one(
+                {"_id": session_id},
+                {"$set": update_data}
+            )
 
         return (
             jsonify(

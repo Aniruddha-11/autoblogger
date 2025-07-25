@@ -114,16 +114,22 @@ class BatchProcessor:
                 print(f"Warning: Network error searching images: {str(e)}")
                 # Continue without images
             
-            # Step 4: Generate blog (all steps with detailed tracking)
+            # Step 4: Generate blog (FIXED VERSION with session_id)
             self.update_status_with_stage("processing", main_keyword, "✍️ Generating blog content...")
             
             try:
-                # Start blog generation
+                # Start blog generation and get session
                 start_response = requests.post(f"{self.base_url}/api/generate-blog/{keyword_id}/start", timeout=30)
                 if start_response.status_code != 200:
                     raise Exception(f"Failed to start blog generation: {start_response.text}")
                 
-                # Execute all blog generation steps with individual stage updates
+                start_data = start_response.json()
+                session_id = start_data.get('session_id')
+                
+                if not session_id:
+                    raise Exception("No session ID returned from blog generation start")
+                
+                # Execute all blog generation steps with session_id
                 blog_steps = [
                     ("title_tag", "📝 Creating SEO title..."),
                     ("h1_heading", "📋 Generating H1 heading..."),
@@ -139,9 +145,13 @@ class BatchProcessor:
                 for step_id, step_description in blog_steps:
                     self.update_status_with_stage("processing", main_keyword, step_description)
                     
+                    # Include session_id in the request
                     step_response = requests.post(
                         f"{self.base_url}/api/generate-blog/{keyword_id}/step",
-                        json={'step': step_id},
+                        json={
+                            'step': step_id,
+                            'session_id': session_id  # Include session ID
+                        },
                         timeout=120
                     )
                     
@@ -197,15 +207,15 @@ class BatchProcessor:
             return True
             
         except Exception as e:
-            self.failed += 1
-            error_msg = str(e)
-            print(f"Error processing {main_keyword}: {error_msg}")
+            # Handle any errors that occurred during processing
+            print(f"Error processing {main_keyword}: {str(e)}")
+            self.update_status_with_stage("error", main_keyword, f"❌ Error: {str(e)}")
             
             self.results.append({
                 'main_keyword': main_keyword,
-                'status': 'failed',
-                'error': error_msg,
-                'failed_at': datetime.utcnow().isoformat()
+                'status': 'error',
+                'error': str(e),
+                'completed_at': datetime.utcnow().isoformat()
             })
             
             return False
